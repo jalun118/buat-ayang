@@ -45,3 +45,19 @@ BtnNot.addEventListener("click", () => {
     BtnNot.style.transform = `translateX(${RandX}px) translateY(${RandY}px)`;
     // console.log(`ok ${RandX}px`)
 });
+
+const Btn = document.querySelectorAll(".btn");
+Btn.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+
+        let ripples = document.createElement("span");
+        ripples.style.left = x + "px";
+        ripples.style.top = y + "px";
+        btn.appendChild(ripples);
+        setTimeout(() => {
+            ripples.remove();
+        }, 500);
+    });
+});

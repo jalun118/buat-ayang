@@ -106,7 +106,7 @@ h2 {
 .alert-1 {
     /* display: none; */
     transform: scale(0);
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: absolute;
     top: 0;
@@ -192,4 +192,72 @@ h2 {
 
 .bold {
     font-weight: bold;
+}
+
+.btn {
+    overflow: hidden;
+}
+.btn > span {
+    position: absolute;
+    background: #ffff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: anim 0.5s ease-in-out infinite;
+    z-index: 100;
+}
+
+@keyframes anim {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.6;
+    }
+    100% {
+        width: 400px;
+        opacity: 0;
+        height: 400px;
+    }
+}
+
+.close::before {
+    content: '✖';
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0d6efd;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    transition: all 0.5s;
+}
+
+.loading > .circle {
+    width: 100px;
+    height: 100px;
+    /* background: #ced4da; */
+    margin: auto 10px;
+    border-radius: 50%;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #ced4da;
+    border-left: 10px solid #ced4da;
+    border-bottom: 10px solid #ced4da;
+    animation: putar 0.6s linear infinite;
+}
+
+@keyframes putar {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    40% {
+        transform: rotateZ(180deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }

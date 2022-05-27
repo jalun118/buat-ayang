@@ -16,19 +16,63 @@
 </head>
 
 <body>
-    <h2>Pesan Kasih sayang</h2>
+    <div class="loading">
+        <div class="circle">
+        </div>
+    </div>
+    <h2>Buat Ayang Yang Tersayang 💖</h2>
 
     <form action="asset/point.html">
         <div class="ketik">
             <label class="form-label">Dari</label>
-            <input type="text" class="form-control" id="from" name="from" value="" autocomplete="hidden">
+            <input type="text" class="form-control" id="from" name="from" value="" placeholder="Dari ...">
         </div>
         <div class="ketik">
             <label class="form-label">Untuk</label>
-            <input type="text" class="form-control" id="to" name="to" value="" autocomplete="hidden">
-        </div> 
-        <input type="submit" class="btn btn-kirim" value="kirim" >
+            <input type="text" class="form-control" id="to" name="to" value="" placeholder="Untuk ...">
+        </div>
+        <input type="submit" class="btn btn-kirim" value="Kirim Request">
     </form>
+    <!-- <button type="button" class="btn tes btn-kirim"> tatat</button> -->
+
+    <script>
+        const Btn = document.querySelectorAll(".btn");
+        Btn.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement("span");
+                ripples.style.left = x + "px";
+                ripples.style.top = y + "px";
+                btn.appendChild(ripples);
+                setTimeout(() => {
+                    ripples.remove();
+                }, 500);
+            });
+            btn.addEventListener("focus", (e) => {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement("span");
+                ripples.style.left = x + "px";
+                ripples.style.top = y + "px";
+                btn.appendChild(ripples);
+            });
+            btn.addEventListener("blur", (e) => {
+                ripples.remove();
+            });
+        });
+
+        window.addEventListener("load", () => {
+            const loding = document.querySelector(".loading");
+
+            loding.style.opacity = "0";
+            setTimeout(() => {
+                loding.style.display = "none";
+            }, 600);
+        })
+    </script>
 </body>
 
 </html>
