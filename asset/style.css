@@ -220,6 +220,10 @@ h2 {
     }
 }
 
+.close {
+    color: #FFFFFF;
+}
+
 .close::before {
     content: '✖';
 }
