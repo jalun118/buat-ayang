@@ -23,21 +23,16 @@ C_Alert.addEventListener("click", () => {
     }
 });
 
+function URLParams() {
+    let params = (new URL(document.location)).searchParams;
+    let dari = params.get('from');
+    let untuk = params.get('to');
 
-function processUser() {
-    var parameters = location.search.substring(1).split("&");
-
-    var temp = parameters[0].split("=");
-    l = unescape(temp[1]);
-    temp = parameters[1].split("=");
-    p = unescape(temp[1]);
-    document.getElementById("dari").innerHTML = l;
-    document.getElementById("untuk").innerHTML = p;
+    document.getElementById("dari").innerHTML = dari;
+    document.getElementById("untuk").innerHTML = untuk;
 }
 
-processUser();
-
-
+URLParams();
 
 // BtnMau.addEventListener("click", () => {
 //     alert("I LOVE YOU ((>ω< ))")
