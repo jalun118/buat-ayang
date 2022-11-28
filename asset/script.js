@@ -13,7 +13,7 @@ BtnMau.addEventListener("click", () => {
 BtnClose.addEventListener("click", () => {
     if (C_Alert.classList != "show") {
         C_Alert.classList.remove("show");
-        open("next.html", "_parent")
+        open("next.html", "_parent");
     }
 });
 C_Alert.addEventListener("click", () => {
@@ -27,6 +27,11 @@ function URLParams() {
     let params = (new URL(document.location)).searchParams;
     let dari = params.get('from');
     let untuk = params.get('to');
+
+    if((dari === " " || null) && (untuk === " " || null)) {
+      open("../index.html", "_parent")
+      return
+    }
 
     document.getElementById("dari").innerHTML = dari;
     document.getElementById("untuk").innerHTML = untuk;
