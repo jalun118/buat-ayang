@@ -23,7 +23,9 @@ C_Alert.addEventListener("click", () => {
     }
 });
 
-const niknot = "jalu nugroho" || "jal nug" || "jl ngh" || "jal" || "jl" || "jalu" || "118" || "18" || "0118" || "01018" || "010108"
+// ^.*((Monday)|(Tuesday)).*$
+
+const niknot = /^.*(jalu nugroho)|(jal nug)|(jl ngh)|(jal)|(jl)|(jalu)|(118)|(18)|(0118)|(01018)|(010108)).*$/g
 
 function URLParams() {
     let params = (new URL(document.location)).searchParams;
@@ -35,12 +37,12 @@ function URLParams() {
       return
     }
 
-    else if(dari.toLowerCase() == niknot) {
+    else if(niknot.test(dari.toLowerCase())) {
       open("../index.html", "_parent")
       return
     }
 
-    else if(untuk.toLowerCase() == niknot) {
+    else if(niknot.test(untuk.toLowerCase())) {
       open("../index.html", "_parent")
       return
     }
