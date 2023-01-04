@@ -23,12 +23,24 @@ C_Alert.addEventListener("click", () => {
     }
 });
 
+const niknot = "jalu nugroho" || "jal nug" || "jl ngh" || "jal" || "jl" || "jalu" || "118" || "18" || "0118" || "01018" || "010108"
+
 function URLParams() {
     let params = (new URL(document.location)).searchParams;
     let dari = params.get('from');
     let untuk = params.get('to');
 
-    if((dari === " " || null) && (untuk === " " || null)) {
+    if((dari == " " || null) && (untuk == " " || null)) {
+      open("../index.html", "_parent")
+      return
+    }
+
+    else if(dari.toLowerCase() == niknot) {
+      open("../index.html", "_parent")
+      return
+    }
+
+    else if(untuk.toLowerCase() == niknot) {
       open("../index.html", "_parent")
       return
     }
